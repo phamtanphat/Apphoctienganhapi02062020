@@ -15,6 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitAPI {
     private static RetrofitAPI retrofitAPI = null;
     private static Retrofit retrofit = null;
+    private static RequestAPI requestAPI = null;
 
     private RetrofitAPI() {
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
@@ -33,11 +34,13 @@ public class RetrofitAPI {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)
                 .build();
+        requestAPI = retrofit.create(RequestAPI.class);
     }
 
     public static RequestAPI getInstance() {
         if (retrofitAPI == null) {
             retrofitAPI = new RetrofitAPI();
         }
+        return requestAPI;
     }
 }
