@@ -1,20 +1,26 @@
-package com.example.apphoctienganhapi02062020.model.response;
+package com.example.apphoctienganhapi02062020.model;
 
-public class WordResponse {
+public class WordModel {
 
     private String id;
     private String en;
     private String vn;
     private boolean ismemorized;
 
-    public WordResponse(String id, String en, String vn, boolean ismemorized) {
+    public WordModel(String id, String en, String vn, boolean ismemorized) {
         this.id = id;
         this.en = en;
         this.vn = vn;
         this.ismemorized = ismemorized;
     }
 
-    public WordResponse() {
+    public WordModel(String en, String vn, boolean ismemorized) {
+        this.en = en;
+        this.vn = vn;
+        this.ismemorized = ismemorized;
+    }
+
+    public WordModel() {
     }
 
     public String getId() {
